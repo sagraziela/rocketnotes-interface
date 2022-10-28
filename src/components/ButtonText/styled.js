@@ -5,5 +5,5 @@ export const Container = styled.button`
     border: none;
     background: none;
     font-size: ${({ theme }) => theme.FONT_SIZE.MD};
-    color: ${({ theme }) => theme.COLORS.HIGHLIGHT_COLOR};
+    color: ${({ theme, isActive }) => isActive ? theme.COLORS.HIGHLIGHT_COLOR : theme.COLORS.GRAY_300};
 `;
