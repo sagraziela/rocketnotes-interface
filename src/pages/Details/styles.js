@@ -12,7 +12,21 @@ export const Container = styled.div`
     > main {
         padding: 64px 0;
         grid-area: content;
-        overflow-y: scroll;
+        overflow-y: auto;
+    }
+
+    > main::-webkit-scrollbar {
+        width: 14px;
+        }
+
+    > main::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.COLORS.GRAY_300};  
+    }
+
+    > main::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.COLORS.GRAY_900};
+        border-radius: 20px;
+        border: 3px solid ${({ theme }) => theme.COLORS.GRAY_300};
     }
 `;
 

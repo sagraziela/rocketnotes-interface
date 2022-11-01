@@ -5,6 +5,7 @@ export default {
         GRAY_900: "#232129",
         GRAY_800: "#312E38",
         GRAY_700: "#3E3B47",
+        GRAY_500: "#666360",
         GRAY_300: "#999591",
         GRAY_100: "#F4EDE8",
     },
