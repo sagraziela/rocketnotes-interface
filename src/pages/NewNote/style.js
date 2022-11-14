@@ -38,7 +38,6 @@ export const Container = styled.div`
 
 export const Form = styled.form`
     max-width: 550px;
-    height: 100vh;
     margin: 38px auto;
 
     > header {
@@ -47,13 +46,17 @@ export const Form = styled.form`
         align-items: baseline;
 
         margin-bottom: 36px;
+
+        > a {
+            color: ${({ theme }) => theme.COLORS.GRAY_300};
+        }
     }
 
     > section {
         margin-top: 48px;
     }
 
-    > button {
+    > a {
         margin: 34px 0 48px 0;
     }
 `;

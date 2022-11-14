@@ -50,7 +50,7 @@ export const Form = styled.form`
         margin-bottom: 16px;
     }
 
-    > div {
-        margin-top: 124px;
+    .back {
+        margin-top: 80px;
     }
 `;

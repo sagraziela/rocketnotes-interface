@@ -1,56 +1,108 @@
+import { useState, useEffect } from "react";
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
 import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
 import { ButtonText } from '../../components/ButtonText';
 import { InputText } from "../../components/InputText";
 import { Card } from "../../components/Card";
-import { Tag } from "../../components/Tag";
 import { FiPlus, FiSearch } from 'react-icons/fi';
 
+import { api } from "../../services/api";
+
 export function Home() {
+
+    const [search, setSearch] = useState("");
+    const [notes, setNotes] = useState([])
+    const [tags, setTags] = useState([]);
+    const [tagSelected, setTagSelected] = useState([]);
+
+    function handleTagSelected(tagName) {
+        if (tagName === "all") {
+            return setTagSelected([]);
+        }
+        const alreadySelected = tagSelected.includes(tagName);
+
+        if(alreadySelected) {
+            const filteredTags = tagSelected.filter(tag => tag !== tagName);
+            setTagSelected(filteredTags);
+
+        } else {
+            setTagSelected(prevState => [...prevState, tagName]);
+        }
+    }
+
+    useEffect(() => { // o useEffect não aceita async/await. Por isso é necessário criar uma outra função.
+        async function fetchTags() {
+            const response = await api.get("/tags");
+            setTags(response.data);
+        }
+
+        fetchTags()
+    }, [])
+
+    useEffect(() => {
+        async function fetchNotes() {
+            const response = await api.get(`/notes?title=${search}&tags=${tagSelected}`);
+            setNotes(response.data);
+        }
+
+        fetchNotes();
+    }, [tagSelected, search])
+
+
     return (
         <Container>
             <Brand>
             <h1>Rocketnotes</h1>
             </Brand>
 
-            <Header></Header>
+            <Header />
 
             <Menu>
-                <li><ButtonText title="Todos" isActive ></ButtonText></li>
-                <li><ButtonText title="Nodejs" ></ButtonText></li>
-                <li><ButtonText title="Express" ></ButtonText></li>
+                <li>
+                    <ButtonText 
+                    title="Todas" 
+                    onClick={() => handleTagSelected("all")}
+                    isActive={tagSelected.length === 0}
+                    />
+                </li>
+                {
+                    tags && tags.map(tag => (
+                        <li key={String(tag.id)}>
+                            <ButtonText 
+                            title={tag.name}
+                            onClick={() => handleTagSelected(tag.name)}
+                            isActive={tagSelected.includes(tag.name)}
+                            />
+                        </li>
+                    ))
+                }
             </Menu>
 
             <Search>
-                <InputText placeholder="Pesquisar por título" icon={FiSearch} />
+                <InputText 
+                placeholder="Pesquisar por título" 
+                icon={FiSearch}
+                onChange={e => setSearch(e.target.value)}
+                />
             </Search>
 
             <Content>
                 <Section title="Minhas notas"></Section>
 
-                <Card 
-                data={{
-                    title: 'React Modal', 
-                    tags: [
-                        {id: 1, name: 'React'}
-                        ]
-                    }} 
-                />
-
-                <Card 
-                data={{
-                    title: 'Exemplo de Middleware', 
-                    tags: [
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'Express'}
-                        ]
-                    }} 
-                />
+                {
+                    notes.map(note => (
+                        <Card 
+                        key={note.id}
+                        to={`/details/${note.id}`}
+                        data={note}
+                        />
+                    ))
+                }
 
             </Content>
 
-            <NewNote>
+            <NewNote to="/new-note">
                 <FiPlus />
                 <p>Criar nota</p>
             </NewNote>

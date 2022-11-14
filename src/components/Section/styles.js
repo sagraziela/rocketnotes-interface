@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
     width: 100%;
+    margin-bottom: 24px;
 
     > h2 {
         border-bottom-width: 1px;

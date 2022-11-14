@@ -44,8 +44,8 @@ export const Form = styled.form`
         padding: 0;
     }
 
-    > div {
-        margin-top: 124px;
+    .back {
+        margin-top: 80px;
     }
 `;
 

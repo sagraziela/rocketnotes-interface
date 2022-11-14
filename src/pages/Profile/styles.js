@@ -5,6 +5,8 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    overflow-y: auto;
 `;
 
 export const Header = styled.div`
@@ -20,7 +22,7 @@ export const Header = styled.div`
     border-bottom-style: solid;
     border-bottom-color: ${({ theme }) => theme.COLORS.GRAY_700};
 
-    > button {
+    > a {
         background-color: transparent;
         border: none;
         margin-left: 144px;
@@ -43,6 +45,7 @@ export const Avatar = styled.div`
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        object-fit: cover;
     }
 
     label {

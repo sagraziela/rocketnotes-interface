@@ -20,7 +20,7 @@ export const Container = styled.div`
         }
 
     > main::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.COLORS.GRAY_300};  
+        background: ${({ theme }) => theme.COLORS.GRAY_300};  
     }
 
     > main::-webkit-scrollbar-thumb {
@@ -34,7 +34,7 @@ export const Links = styled.ul`
     list-style: none;
 
     > li {
-        margin-top: 24px;
+        margin-top: 12px;
         
         a {
             color: ${({ theme }) => theme.COLORS.GRAY_100};
@@ -56,12 +56,12 @@ export const Content = styled.div`
     > h1 {
         font-size: ${({ theme }) => theme.FONT_SIZE.XXXL};
         font-weight: ${({ theme }) => theme.FONT_WEIGHT.MEDIUM};
-        padding: 64px 0 16px 0;
+        padding: 56px 0 16px 0;
     }
 
     > p {
         font-size: ${({ theme }) => theme.FONT_SIZE.MD};
         text-align: justify;
-        margin-bottom: 54px;
+        margin-bottom: 40px;
     }
 `;
