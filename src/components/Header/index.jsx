@@ -7,7 +7,7 @@ import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 export function Header() {
     const { user, signOut } = useAuth();
 
-    const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+    const avatarURL = user.avatar ? `${api.defaults.baseURL}files/${user.avatar}` : avatarPlaceholder;
 
     function handleSignOut() {
         const confirmSignOut = confirm('Tem certeza que deseja sair?');
