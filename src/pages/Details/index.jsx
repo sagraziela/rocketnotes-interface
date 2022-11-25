@@ -12,7 +12,6 @@ import { api } from "../../services/api";
 export function Details() {
 
   const [data, setData] = useState(null);
-  console.log(data)
 
   const params = useParams();
 
@@ -33,7 +32,6 @@ export function Details() {
       setData(response.data);
     }
     fetchNote();
-    console.log(data)
   }, [])
 
   return (

@@ -18,8 +18,6 @@ function AuthProvider({ children }) {
 
             setData({ user, token })
 
-            console.log(user, token);
-
         } catch(error) {
            return error.response ? alert(error.response.data.message) : alert('Não foi possível fazer o login.')
         }
@@ -34,6 +32,7 @@ function AuthProvider({ children }) {
     }
 
     async function updateProfile({ user, avatarFile }) {
+        console.log(user, avatarFile)
         try {
             if(avatarFile) {
                 const fileUploadForm = new FormData();
@@ -41,6 +40,8 @@ function AuthProvider({ children }) {
 
                 const response = await api.patch('/users/avatar', fileUploadForm);
                 user.avatar = response.data.avatar;
+
+                console.log(user.avatar)
             }
 
             await api.put("/users", user);
