@@ -17,7 +17,7 @@ export const Container = styled.div`
     }
 
     ::-webkit-scrollbar-track {
-        background: ${({ theme }) => theme.COLORS.GRAY_700};
+        background: ${({ theme }) => theme.COLORS.GRAY_800};
         border-radius: 10px;
     }
 `;

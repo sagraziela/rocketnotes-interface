@@ -19,12 +19,12 @@ export const Container = styled.div`
         }
 
         ::-webkit-scrollbar-thumb {
-            background: ${({ theme }) => theme.COLORS.GRAY_900};
+            background: ${({ theme }) => theme.COLORS.HIGHLIGHT_COLOR};
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-track {
-            background: ${({ theme }) => theme.COLORS.GRAY_700};
+            background: ${({ theme }) => theme.COLORS.GRAY_800};
             border-radius: 10px;
         }
     }
@@ -73,9 +73,24 @@ export const Textarea = styled.textarea`
         border: none;
         border-radius: 10px;
 
+        overflow-y: auto;
         resize: none;
 
         ::placeholder {
             color: ${({ theme }) => theme.COLORS.GRAY_700};
+        }
+
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: ${({ theme }) => theme.COLORS.GRAY_800};
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: ${({ theme }) => theme.COLORS.GRAY_900};
+            border-radius: 10px;
         }
 `;

@@ -57,7 +57,7 @@ export const Menu = styled.ul`
     }
 
     ::-webkit-scrollbar-track {
-        background: ${({ theme }) => theme.COLORS.GRAY_800};
+        background: ${({ theme }) => theme.COLORS.GRAY_900};
         border-radius: 10px;
     }
 
@@ -77,6 +77,7 @@ export const Search = styled.div`
 export const Content = styled.div`
     grid-area: content;
     margin: 0 64px 32px 64px;
+    padding-right: 8px;
     overflow-y: auto;
 
     ::-webkit-scrollbar {
@@ -89,7 +90,7 @@ export const Content = styled.div`
     }
 
     ::-webkit-scrollbar-track {
-        background: ${({ theme }) => theme.COLORS.GRAY_700};
+        background: ${({ theme }) => theme.COLORS.GRAY_800};
         border-radius: 10px;
     }
 `;
