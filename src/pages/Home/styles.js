@@ -47,6 +47,20 @@ export const Menu = styled.ul`
 
     overflow-y: auto;
 
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.COLORS.HIGHLIGHT_COLOR};
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: ${({ theme }) => theme.COLORS.GRAY_800};
+        border-radius: 10px;
+    }
+
     > li {
         margin-bottom: 24px;
     }
@@ -64,6 +78,20 @@ export const Content = styled.div`
     grid-area: content;
     margin: 0 64px 32px 64px;
     overflow-y: auto;
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.COLORS.GRAY_900};
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: ${({ theme }) => theme.COLORS.GRAY_700};
+        border-radius: 10px;
+    }
 `;
 
 export const NewNote = styled(Link)`

@@ -13,20 +13,20 @@ export const Container = styled.div`
     > main {
         grid-area: content;
         overflow-y: auto;
-    }
 
-    > main::-webkit-scrollbar {
-        width: 14px;
+        ::-webkit-scrollbar {
+        width: 12px;
         }
 
-    > main::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.COLORS.GRAY_300};  
-    }
+        ::-webkit-scrollbar-thumb {
+            background: ${({ theme }) => theme.COLORS.GRAY_900};
+            border-radius: 10px;
+        }
 
-    > main::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.COLORS.GRAY_900};
-        border-radius: 20px;
-        border: 3px solid ${({ theme }) => theme.COLORS.GRAY_300};
+        ::-webkit-scrollbar-track {
+            background: ${({ theme }) => theme.COLORS.GRAY_700};
+            border-radius: 10px;
+        }
     }
 
     .tags {

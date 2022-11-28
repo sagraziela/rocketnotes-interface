@@ -49,6 +49,22 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
 
+    overflow-y: auto;
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.COLORS.GRAY_900};
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: ${({ theme }) => theme.COLORS.GRAY_700};
+        border-radius: 10px;
+    }
+
     > button:first-child {
         align-self: flex-end;
     }
