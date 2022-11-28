@@ -45,6 +45,8 @@ export const Menu = styled.ul`
     text-align: center;
     padding: 64px 0;
 
+    overflow-y: auto;
+
     > li {
         margin-bottom: 24px;
     }
